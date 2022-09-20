@@ -177,9 +177,18 @@ Metrics (accuracy, time usage, memory footprint, etc.) will be recorded automati
 
 ### 4.2 Method
 
-对于2.1中场景的不同分类，有不同的领域自适应算法可用，以下章节对其进行分类汇总：
+对于连续领域自适应场景，有一类针对性的算法Continual DA，但其仅适用于源域/目标域标签空间完全相同的单源域自适应，并不能覆盖2.1中场景的不同分类。因此，我们对传统UDA算法也进行了统计与实现，在Continual DA算法无法使用的场景中（如Open Set DA）我们默认使用传统UDA算法。
 
 #### 4.2.1 根据特征空间 (X) 进行分类
+
+大部分DA算法都没有明确说明适用于哪些domain shift，但至少可以从其实验所用数据集来判断其支持的domain shift。下表对Continual DA算法进行统计：
+
+| 算法 | 实验数据集                                                   | Shift Type                           |
+| ---- | ------------------------------------------------------------ | ------------------------------------ |
+| ONDA | [KTH Handtool](https://www.nada.kth.se/cas/data/handtool/)   | Background Shifts, Corruption Shifts |
+| Tent | ImageNet-C, CIFAR-10-C, CIFAR-100-C<br>SVHN/MNIST/USPS<br>GTA/CityScapes | Corruption Shifts, Dataset Shifts    |
+| SHOT | Office, Office-Home, VisDA-C<br>SVHN/MNIST/USPS              | Dataset Shifts                       |
+| ...  | ...                                                          | ...                                  |
 
 #### 4.2.2 根据标签空间 (Y) 进行分类
 
