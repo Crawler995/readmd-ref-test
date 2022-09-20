@@ -127,7 +127,7 @@ Metrics (accuracy, time usage, memory footprint, etc.) will be recorded automati
 | Geometric Transformation Shifts | 对图像施加几何变换（旋转、翻转、拉伸、视角变换等）           |
 | Texture Shifts                  | 图像中物体形状保持完全一致，但纹理发生变化（如使用风格迁移生成的图片） |
 | ~~Adversarial Shifts~~          | ~~使用对抗攻击生成的图片~~                                   |
-| Dataset Shifts                  | 类别空间有交叉的两个数据集之间的shift                        |
+| Dataset Shifts                  | 类别空间有交叉的两个数据集之间的shift。<br>同一个数据集中**采集来源不同**的域（如PACS/DomainNet/Office）实际上等价于多个数据集的组合，也可看作Dataset Shifts。 |
 
 #### 3.1.2 根据标签空间 (Y) 进行分类
 
@@ -183,12 +183,17 @@ Metrics (accuracy, time usage, memory footprint, etc.) will be recorded automati
 
 大部分DA算法都没有明确说明适用于哪些domain shift，但至少可以从其实验所用数据集来判断其支持的domain shift。下表对Continual DA算法进行统计：
 
-| 算法 | 实验数据集                                                   | Shift Type                           |
-| ---- | ------------------------------------------------------------ | ------------------------------------ |
-| ONDA | [KTH Handtool](https://www.nada.kth.se/cas/data/handtool/)   | Background Shifts, Corruption Shifts |
-| Tent | ImageNet-C, CIFAR-10-C, CIFAR-100-C<br>SVHN/MNIST/USPS<br>GTA/CityScapes | Corruption Shifts, Dataset Shifts    |
-| SHOT | Office, Office-Home, VisDA-C<br>SVHN/MNIST/USPS              | Dataset Shifts                       |
-| ...  | ...                                                          | ...                                  |
+| 算法  | 实验数据集                                                   | Shift Type                                            |
+| ----- | ------------------------------------------------------------ | ----------------------------------------------------- |
+| ONDA  | [KTH Handtool](https://www.nada.kth.se/cas/data/handtool/)   | Background Shifts<br>Corruption Shifts                |
+| Tent  | ImageNet-C, CIFAR-10-C, CIFAR-100-C<br>SVHN/MNIST/USPS<br>GTA/CityScapes | Corruption Shifts<br/>Dataset Shifts                  |
+| SHOT  | Office, Office-Home, VisDA-C<br>SVHN/MNIST/USPS              | Dataset Shifts                                        |
+| BUFR  | MNIST-M, MNIST-C<br>EMNIST-DA<br>CIFAR-10-C, CIFAR-100-C<br>CAMELYON17 | Corruption Shifts<br/>Dataset Shifts                  |
+| ACE   | SYNTHIA-SEQS                                                 | Corruption Shifts                                     |
+| CUA   | RotatedMNIST                                                 | Geometric Transformation Shifts                       |
+| IADA  | Transformed MNIST<br>Oxford RobotCar                         | Geometric Transformation Shifts<br/>Corruption Shifts |
+| EAML  | RotatedMNIST<br>Evolving Vehicles<br>Caltran                 | Geometric Transformation Shifts<br/>Corruption Shifts |
+| ConDA | Office, Office-Home, Visda-C                                 | Corruption Shifts<br/>Dataset Shifts                  |
 
 #### 4.2.2 根据标签空间 (Y) 进行分类
 
