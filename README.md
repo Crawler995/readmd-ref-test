@@ -1,5 +1,33 @@
 # MVBench
 
+xxx
+
+- [1. Introduction](#1-introduction)
+- [2. Get started](#2-get-started)
+  - [2.1 Installation](#21-installation)
+  - [2.2 Build scenario](#22-build-scenario)
+    - [2.2.1 By UI (recommended)](#221-by-ui-recommended)
+    - [2.2.2 By code](#222-by-code)
+  - [2.3 Implement your algorithm](#23-implement-your-algorithm)
+    - [2.3.1 Under unified interface (recommended)](#231-under-unified-interface-recommended)
+    - [2.3.2 Based on your existed code](#232-based-on-your-existed-code)
+  - [2.4 Evaluation](#24-evaluation)
+- [3. Scenario](#3-scenario)
+  - [3.1 根据特征空间 (X) 进行分类](#31-根据特征空间-x-进行分类)
+  - [3.2 根据标签空间 (Y) 进行分类](#32-根据标签空间-y-进行分类)
+  - [3.3 根据源域数量进行分类](#33-根据源域数量进行分类)
+- [4. Workload](#4-workload)
+  - [4.1 Dataset](#41-dataset)
+    - [4.1.1 图像分类](#411-图像分类)
+    - [4.1.2 目标检测](#412-目标检测)
+  - [4.2 Algorithm](#42-algorithm)
+    - [4.2.1 根据特征空间 (X) 进行分类](#421-根据特征空间-x-进行分类)
+    - [4.2.2 根据标签空间 (Y) 进行分类](#422-根据标签空间-y-进行分类)
+    - [4.2.3 根据源域数量进行分类](#423-根据源域数量进行分类)
+  - [4.3 Model](#43-model)
+    - [4.3.1 图像分类](#431-图像分类)
+    - [4.3.2 目标检测](#432-目标检测)
+
 
 
 ## 1. Introduction
@@ -112,7 +140,7 @@ Metrics (accuracy, time usage, memory footprint, etc.) will be recorded automati
 
 根据源域/目标域的特征空间、标签空间、对应关系，可对该场景进行更具体的分类，如下。**与之对应的数据集、算法和模型将在后续章节进行更详细的汇总展示。**
 
-#### 3.1.1 根据特征空间 (X) 进行分类
+### 3.1 根据特征空间 (X) 进行分类
 
 域迁移体现在输入数据的分布变化上，如环境影响导致的图像光照、模糊变化，图像预处理阶段中产生的噪点、图像压缩等。下表根据CVPR'22和NeuriPS'20对Distribution Shifts进行了详尽的分类。~~但需要注意的是，Adversarial Shifts通常不纳入领域自适应的研究范围，本benchmark暂不对其进行研究。~~
 
@@ -127,7 +155,7 @@ Metrics (accuracy, time usage, memory footprint, etc.) will be recorded automati
 | ~~Adversarial Shifts~~          | ~~使用对抗攻击生成的图片~~                                   |
 | Dataset Shifts                  | 类别空间有交叉的两个数据集之间的shift。<br>同一个数据集中**采集来源不同**的域（如PACS/DomainNet/Office）实际上等价于多个数据集的组合，也可看作Dataset Shifts。 |
 
-#### 3.1.2 根据标签空间 (Y) 进行分类
+### 3.2 根据标签空间 (Y) 进行分类
 
 源域和目标域在特征空间不同的同时，标签空间可能也不同。根据源域和目标域标签空间的交叉程度可分为以下四类：
 
@@ -138,7 +166,7 @@ Metrics (accuracy, time usage, memory footprint, etc.) will be recorded automati
 | Open Set DA  | 目标域标签空间包含源域标签空间           |
 | Universal DA | 源域标签空间和目标域标签空间只有部分交集 |
 
-#### 3.1.3 根据源域数量进行分类
+### 3.3 根据源域数量进行分类
 
 移动设备在同一时间只可能位于一个目标域中，因此不存在multi-target DA问题。
 
