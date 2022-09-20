@@ -1,7 +1,5 @@
 # MVBench
 
-引用测试：这是一条引用<sup><a href="#ref1">[1]</a></sup>
-
 
 
 ## 1. Introduction
