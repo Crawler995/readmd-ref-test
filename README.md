@@ -46,6 +46,6 @@ v
 
 ## 参考文献
 
-[1] <span id="ref1"> (ICLR'21) fasdfasdf </span>
+[1] <span id="ref1">(ICLR'21) fasdfasdf</span>
 
 
